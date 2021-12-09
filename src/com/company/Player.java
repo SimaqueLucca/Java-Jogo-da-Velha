@@ -3,12 +3,12 @@ package com.company;
 public class Player {
 
     private char pin;
-    private int score;
+    private int plays;
     private String name;
 
-    public Player(char pin, int score, String name) {
+    public Player(char pin, int plays, String name) {
         this.pin = pin;
-        this.score = score;
+        this.plays = plays;
         this.name = name;
     }
 
@@ -20,12 +20,12 @@ public class Player {
         this.pin = pin;
     }
 
-    public int getScore() {
-        return this.score;
+    public int getPlays() {
+        return this.plays;
     }
 
-    public void setScore(int score) {
-        this.score += score;
+    public void makeAMove() {
+        this.plays -= 1;
     }
 
     public String getName() {

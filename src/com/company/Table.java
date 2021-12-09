@@ -8,8 +8,8 @@ public class Table {
         }
     }
 
-    public static int setField(char[][] table, int position, char pin) {
-        int column, row, moveScore = 0;
+    public static void setField(char[][] table, int position, Player player) {
+        int column, row;
 
         switch (position) {
             case 1:
@@ -18,8 +18,8 @@ public class Table {
                 row = FieldWeight.FIELDONE.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDONE.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
                 } else {
                     alreadyChosen();
                 }
@@ -32,8 +32,8 @@ public class Table {
                 row = FieldWeight.FIELDTWO.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDTWO.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
                 } else {
                     alreadyChosen();
                 }
@@ -46,8 +46,9 @@ public class Table {
                 row = FieldWeight.FIELDTHREE.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDTHREE.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
+                    ;
                 } else {
                     alreadyChosen();
                 }
@@ -59,8 +60,8 @@ public class Table {
                 row = FieldWeight.FIELDFOUR.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDFOUR.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
                 } else {
                     alreadyChosen();
                 }
@@ -72,8 +73,8 @@ public class Table {
                 row = FieldWeight.FIELDFIVE.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDFIVE.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
                 } else {
                     alreadyChosen();
                 }
@@ -85,8 +86,8 @@ public class Table {
                 row = FieldWeight.FIELDSIX.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDSIX.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
                 } else {
                     alreadyChosen();
                 }
@@ -98,8 +99,8 @@ public class Table {
                 row = FieldWeight.FIELDSEVEN.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDSEVEN.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
                 } else {
                     alreadyChosen();
                 }
@@ -111,8 +112,8 @@ public class Table {
                 row = FieldWeight.FIELDEIGHT.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDEIGHT.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
                 } else {
                     alreadyChosen();
                 }
@@ -124,8 +125,8 @@ public class Table {
                 row = FieldWeight.FIELDNINE.row;
 
                 if (checkField(table, row, column)) {
-                    table[row][column] = pin;
-                    moveScore = FieldWeight.FIELDNINE.weight;
+                    table[row][column] = player.getPin();
+                    player.makeAMove();
                 } else {
                     alreadyChosen();
                 }
@@ -135,12 +136,10 @@ public class Table {
         }
 
         System.out.println("\n\n");
-        printTable(table);
-        return moveScore;
     }
 
     public static boolean checkField(char[][] table, int r, int c) {
-        if (table[r][c] == '_')
+        if (table[r][c] != 'X' & table[r][c] != 'O')
             return true;
         return false;
     }
